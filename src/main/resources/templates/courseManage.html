@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程管理</title>
+    <link rel="stylesheet" th:href="@{/sidediv.css}">
+    <link rel="stylesheet" th:href="@{/studentManage.css}">
+    <link rel="stylesheet" th:href="@{/linkStyle.css}">
+    <link rel="stylesheet" th:href="@{/table.css}">
+</head>
+<body class="backgroundColor">
+<div class="sidediv">
+    <span id="span5"><a th:href="@{/logOut}">&lt&lt&lt登出</a></span>
+    <span id="span3"><a th:href="@{/teacherIndex}">主页/选课</a></span>
+    <span id="span1"><a th:href="@{/courseManage}">课程管理</a></span>
+    <span id="span2"><a th:href="@{/studentManage}">学生管理</a></span>
+</div>
+<div class="studentInfo">
+    <table>
+        <tr>
+            <th>课程号</th>
+            <th>课程名</th>
+            <th>课程信息</th>
+            <th>学分</th>
+            <th>删除课程</th>
+        </tr>
+        <tr th:each="value:${courses}">
+            <td th:text="${value.Cno}"></td>
+            <td th:text="${value.Cname}"></td>
+            <td th:text="${value.Meta}"></td>
+            <td th:text="${value.Grade}"></td>
+            <td><a th:href="@{/deleteCourse(delno=${value.Cno})}">删除</a></td>
+        </tr>
+    </table>
+
+<!--    <ul class="stuul">-->
+<!--        <li th:each="value:${courses}">-->
+<!--            <span th:text="'课程号：'+${value.Cno}"></span>-->
+<!--            <span th:text="'课程名：'+${value.Cname}"></span>-->
+<!--            <span th:text="'课程信息：'+${value.Meta}"></span>-->
+<!--            <span th:text="'学分：'+${value.Grade}"></span>-->
+<!--            <span><a th:href="@{/deleteCourse(delno=${value.Cno})}">删除</a> </span>-->
+<!--        </li>-->
+<!--    </ul>-->
+</div>
+<div class="addstu">
+    <form action="/addCourseReq" method="post" class="basic-grey">
+        <label>
+            <span>课程号：</span>
+            <input type="text" name="cno">
+        </label>
+        <br>
+        <label>
+            <span>课程名称：</span>
+            <input type="text" name="cname">
+        </label>
+        <br><br>
+        <label>
+            <span>课程简介：</span>
+            <input type="text" name="meta" style="width: 250px;height: 50px">
+        </label>
+        <br><br>
+        <label>
+            <span>输入学分：</span>
+            <input type="text" name="grade">
+        </label>
+        <br>
+        <label>
+            <input type="submit" value="添加">
+        </label>
+    </form>
+</div>
+</body>
+</html>

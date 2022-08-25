@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" th:href="@{linkStyle.css}">
+</head>
+<body class="backgroundColor">
+<div style="position: absolute; top: 15%; left: 35%; width: 800px; height: 800px; background: transparent;">
+    <form action="/registerrequest" method="post" class="basic-grey">
+        <label>
+            <span>用户名:</span>
+            <input type="text" name="Saccount">
+        </label>
+        <br>
+        <label>
+            <span>密码:</span> <input type="password" name="Spassword">
+        </label>
+        <br>
+        <label>
+            <span>确认密码:</span> <input type="password" name="confirm">
+        </label>
+        <br>
+        <label>
+            <span>性别:</span> <input type="radio" name="Sex" value="男">男
+            <input type="radio" name="Sex" value="男">女
+        </label>
+        <br>
+        <label>
+            <span>班级:</span>
+            <select name="Classs" id="ClassS">
+                <option value="软件2001">软件2001</option>
+                <option value="软件2002">软件2002</option>
+                <option value="软件2003">软件2003</option>
+                <option value="软件2004">软件2004</option>
+            </select>
+        </label>
+        <br>
+        <label>
+            <span>真实姓名:</span> <input type="text" name="name">
+        </label>
+        <br>
+        <label>
+            <input type="submit" value="注册">
+        </label>
+    </form>
+</div>
+</body>
+</html>

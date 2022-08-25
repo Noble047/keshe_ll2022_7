@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <link rel="stylesheet" th:href="@{linkStyle.css}">
+</head>
+<body class="backgroundColor">
+<div style="position: absolute; top: 15%; left: 35%; width: 800px; height: 800px; background: transparent;">
+    <form action="/studentlogin" method="post" class="basic-grey">
+        <h1><a th:href="@{/teacherLogin}" style="position: relative; left: 80px;">教师</a>
+            <a th:href="@{/index}" style="position: relative; left: 100px">学生</a>
+            <br>
+            <span th:if="${msg}" th:text="${msg}" style="text-align: right;"></span>
+        </h1>
+        <label>
+            <span>用户名:</span>
+            <input type="text" name="username">
+        </label>
+        <br>
+        <label>
+            <span>密码:</span>
+            <input type="password" name="password">
+        </label>
+        <br>
+        <label>
+            <input type="button" onclick="goToRegister()" value="立即注册" style="position: relative; left: 270px">
+            <input type="submit" value="登陆" style="position: relative; left: 290px;">
+        </label>
+    </form>
+</div>
+<br>
+<script>
+    function goToRegister(){
+        location.href = '[[@{/register}]]';
+    }
+</script>
+</body>
+</html>

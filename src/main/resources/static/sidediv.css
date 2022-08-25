@@ -1,0 +1,48 @@
+.sidediv{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: #494646;
+    color: azure;
+    box-shadow: 5px 5px 5px rgba(34,33,33,0.4);
+    width: 10%;
+    height: 100%;
+}
+#span1{
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    font-size: 20px;
+}
+#span2{
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    font-size: 20px;
+}
+#span3{
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    font-size: 20px;
+}
+#span4{
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+    font-size: 20px;
+}
+#span5{
+    position: absolute;
+    top: 1%;
+    left: 10%;
+    font-size: 10px;
+}
+#span6{
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    font-size: 10px;
+}
+
+

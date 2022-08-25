@@ -1,0 +1,76 @@
+.studentInfo{
+    position: absolute;
+    top: 0%;
+    left: 10%;
+    background-color: #e4efeb;
+    width: 100%;
+    height: 100%;
+}
+.selectCourseInfo{
+    position: absolute;
+    top: 0%;
+    left: 65%;
+    width: 60%;
+    height: 40%;
+}
+.addScore{
+    position: absolute;
+    top: 64%;
+    left: 66%;
+    width: 31%;
+    height: 34%;
+    border: 2px solid black;
+}
+#score{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+.addstu{
+    position: absolute;
+    top: 10%;
+    left: 75%;
+    width: 20%;
+    height: 50%;
+}
+ul,
+li {
+    list-style-type: none;
+}
+
+.table {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 20px;
+    height: 100%;
+    width: 60%;
+    border-right: 1px solid rgb(197, 197, 197);
+}
+
+.form {
+    border-top-right-radius: 20px;
+    height: 100%;
+    width: 40%;
+}
+ul {
+    border: 2px solid rgb(248, 203, 0);
+    background: rgb(255, 233, 171);
+    margin: 20px;
+    padding: 10px 10px 30px 10px;
+    min-height: 500px;
+    border-radius: 10px;
+    width: 50%;
+    height: 90%;
+}
+ul > li {
+    border: 1px solid rgb(177, 177, 177);
+    box-shadow: 2px 2px 2px rgba(34,33,33,0.4);
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+ul > li > span {
+    margin-right: 15px;
+}

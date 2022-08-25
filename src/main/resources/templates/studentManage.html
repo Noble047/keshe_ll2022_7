@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理</title>
+    <link rel="stylesheet" th:href="@{/sidediv.css}">
+    <link rel="stylesheet" th:href="@{/studentManage.css}">
+    <link rel="stylesheet" th:href="@{/linkStyle.css}">
+    <link rel="stylesheet" th:href="@{/table.css}">
+</head>
+<body class="backgroundColor">
+<div class="sidediv">
+    <span id="span5"><a th:href="@{/logOut}">&lt&lt&lt登出</a></span>
+    <span id="span3"><a th:href="@{/teacherIndex}">主页/选课</a></span>
+    <span id="span1"><a th:href="@{/courseManage}">课程管理</a></span>
+    <span id="span2"><a th:href="@{/studentManage}">学生管理</a></span>
+</div>
+<div class="studentInfo">
+    <table>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>班级</th>
+            <th>删除</th>
+        </tr>
+        <tr th:each="value:${studentList}">
+            <td th:text="${value.Sno}"></td>
+            <td th:text="${value.Sname}"></td>
+            <td th:text="${value.Sex}"></td>
+            <td th:text="${value.Classs}"></td>
+            <td><a th:href="@{/deleteStudent(delno=${value.Sno})}">删除</a></td>
+        </tr>
+    </table>
+
+<!--    <ul class="stuul">-->
+<!--        <li th:each="value:${studentList}">-->
+<!--            <span th:text="'学号：'+${value.Sno}"></span>-->
+<!--            <span th:text="'姓名：'+${value.Sname}"></span>-->
+<!--            <span th:text="'性别：'+${value.Sex}"></span>-->
+<!--            <span th:text="'班级：'+${value.Classs}"></span>-->
+<!--            <span><a th:href="@{/deleteStudent(delno=${value.Sno})}">删除</a> </span>-->
+<!--        </li>-->
+<!--    </ul>-->
+</div>
+<div class="addstu">
+    <form action="/addStudent" method="post" class="basic-grey">
+        <label>
+            <span>学号：</span>
+            <input type="text" name="Sno">
+        </label>
+        <br>
+        <label>
+            <span>学生姓名：</span>
+            <input type="text" name="name">
+        </label>
+        <br>
+        <label>
+            <span>学生性别：</span>
+            <input type="radio" name="Sex" value="男">男
+            <input type="radio" name="Sex" value="女">女
+        </label>
+        <br>
+        <label>
+            <span>学生班级：</span>
+            <select name="Classs" id="ClassS">
+                <option value="软件2001">软件2001</option>
+                <option value="软件2002">软件2002</option>
+                <option value="软件2003">软件2003</option>
+                <option value="软件2004">软件2004</option>
+            </select>
+        </label>
+        <br>
+        <label>
+            <span>新账号：</span>
+            <input type="text" name="Saccount">
+        </label>
+        <br>
+        <label>
+            <span>账号密码：</span>
+            <input type="password" name="Spassword">
+        </label>
+        <br>
+        <label>
+            <input type="submit" value="添加">
+        </label>
+    </form>
+</div>
+</body>
+</html>

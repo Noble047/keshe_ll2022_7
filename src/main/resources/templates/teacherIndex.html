@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>教师主页</title>
+    <link rel="stylesheet" th:href="@{/sidediv.css}">
+    <link rel="stylesheet" th:href="@{/studentManage.css}">
+    <link rel="stylesheet" th:href="@{/studentIndex.css}">
+    <link rel="stylesheet" th:href="@{/linkStyle.css}">
+    <link rel="stylesheet" th:href="@{/table.css}">
+</head>
+<body class="backgroundColor">
+<div class="sidediv">
+    <span id="span5"><a th:href="@{/logOut}">&lt&lt&lt登出</a></span>
+    <span id="span3"><a th:href="@{/teacherIndex}">主页/选课</a></span>
+    <span id="span1"><a th:href="@{/courseManage}">课程管理</a></span>
+    <span id="span2"><a th:href="@{/studentManage}">学生管理</a></span>
+    <span id="span4"><a th:href="@{/changePassword(id=${session.id},no=${session.tno})}">个人账户</a></span>
+</div>
+<div class="studentInfo">
+    <table>
+        <tr>
+            <th>课程号</th>
+            <th>课程名</th>
+            <th>课程信息</th>
+            <th>学分</th>
+            <th>查看学生</th>
+        </tr>
+        <tr th:each="value:${courses}">
+            <td th:text="${value.Cno}"></td>
+            <td th:text="${value.Cname}"></td>
+            <td th:text="${value.Meta}"></td>
+            <td th:text="${value.Grade}"></td>
+            <td><a th:href="@{/getSelected(Cno=${value.Cno})}">查看学生</a></td>
+        </tr>
+    </table>
+
+<!--    <ul class="stuul">-->
+<!--        <li th:each="value:${courses}">-->
+<!--            <span th:text="'课程号：'+${value.Cno}"></span>-->
+<!--            <span th:text="'课程名：'+${value.Cname}"></span>-->
+<!--            <span th:text="'课程信息：'+${value.Meta}"></span>-->
+<!--            <span th:text="'学分：'+${value.Grade}"></span>-->
+<!--            <span><a th:href="@{/getSelected(Cno=${value.Cno})}">查看选修的学生</a> </span>-->
+<!--        </li>-->
+<!--    </ul>-->
+</div>
+<div class="selectCourseInfo">
+
+    <table>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>成绩</th>
+            <th>选择该学生</th>
+        </tr>
+        <tr th:each="value:${soc}">
+            <td th:text="${value.Sno}"></td>
+            <td th:text="${value.Sname}"></td>
+            <td th:text="${value.Score}"></td>
+            <td><a th:href="@{/setScore(sno=${value.Sno},cno=${session.selectedCno})}">选择该学生</a></td>
+        </tr>
+    </table>
+
+<!--    <ul>-->
+<!--        <li th:each="value:${soc}">-->
+<!--            <span th:text="'学号：'+${value.Sno}"></span>-->
+<!--            <span th:text="'姓名：'+${value.Sname}"></span>-->
+<!--            <span th:text="'成绩：'+${value.Score}"></span>-->
+<!--            <span><a th:href="@{/setScore(sno=${value.Sno},cno=${session.selectedCno})}">选择该学生</a></span>-->
+<!--        </li>-->
+<!--    </ul>-->
+</div>
+<div class="addScore">
+    <form action="/setScoreReq" id="score" class="basic-grey">
+        <label>
+            <h4 th:if="${msg}" th:text="${msg}" class="msg"></h4>
+        </label>
+        <lable>
+            <span>分数：</span>
+            <input type="text" name="score">
+        </lable>
+        <br>
+        <label>
+            <input type="submit" value="提交分数">
+        </label>
+        <input type="text" th:value="${session.selectedCno}" name="cno" style="visibility: hidden">
+    </form>
+</div>
+</body>
+</html>
